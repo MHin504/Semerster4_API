@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vorfälle</title>
+</head>
+<body>
+    <h1>Vorfälle</h1>
+    <ul>
+    {% for incident in incidents %}
+        <li>
+            ID: {{ incident.id }} - Datum: {{ incident.date }} - Art: {{ incident.vorfall_art }} - Ort: {{ incident.vorfall_ort }} - Schadstoff: {{ incident.schadstoff }} - Status: {{ incident.status }}
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

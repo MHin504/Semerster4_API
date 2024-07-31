@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umweltkontroll-API</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Umweltkontroll-API</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Vorfall melden</h2>
+            <form id="incident-form" action="/send_incident" method="post">
+                <label for="vorfall_art-select">Vorfallart:</label>
+                <select id="vorfall_art-select" name="vorfall_art">
+                    <option value="luftverschmutzung">Luftverschmutzung</option>
+                    <option value="wasserverschmutzung">Wasserverschmutzung</option>
+                    <option value="bodenverschmutzung">Bodenverschmutzung</option>
+                </select>
+                <label for="vorfall_ort-input">Ort:</label>
+                <input type="text" id="vorfall_ort-input" name="vorfall_ort">
+                <label for="schadstoff-select">Schadstoff:</label>
+                <select id="schadstoff-select" name="schadstoff">
+                    {% for schadstoff in schadstoffe %}
+                        <option value="{{ schadstoff }}">{{ schadstoff }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Vorfall melden</button>
+            </form>
+        </section>
+        <section>
+            <h2>Vorfälle anzeigen</h2>
+            <button><a href="/incidents">Vorfälle anzeigen</a></button>
+        </section>
+    </main>
+</body>
+</html>
